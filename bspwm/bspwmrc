@@ -1,0 +1,25 @@
+#! /bin/sh
+
+# Polybar
+$HOME/.config/polybar/launch.sh
+
+# Keybinds
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE
+
+bspc config focused_border_color   "#1255ff"
+bspc config normal_border_color    "#6329fc"
+bspc config border_width           2
+bspc config window_gap             2
+bspc config pointer_follows_focus  false
+bspc config focus_follows_pointer  true
+bspc config split_ratio            0.52
+bspc config borderless_monocle     true
+bspc config gapless_monocle        true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
